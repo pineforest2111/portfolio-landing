@@ -1,0 +1,117 @@
+.portfolio-contact-button {
+  --button-border: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 163 68' preserveAspectRatio='none'><g transform='matrix(2.7486e-7 3.601 -8.6318 5.1622e-7 81.5 34)'><foreignObject x='-179.4' y='-179.4' width='358.79' height='358.79'><div xmlns='http://www.w3.org/1999/xhtml' style='background-image: conic-gradient(from 90deg, rgb(0, 0, 0) -5.8782%, rgb(6, 6, 6) -4.8783%, rgb(12, 12, 12) -3.8783%, rgb(24, 24, 24) -1.8784%, rgb(48, 48, 48) 2.1213%, rgb(72, 72, 72) 6.1211%, rgb(97, 97, 97) 10.121%, rgb(136, 136, 136) 12.875%, rgb(176, 176, 176) 15.629%, rgb(215, 215, 215) 18.383%, rgb(255, 255, 255) 21.137%, rgb(255, 255, 255) 32.64%, rgb(255, 255, 255) 40.49%, rgb(215, 215, 215) 42.979%, rgb(176, 176, 176) 45.468%, rgb(136, 136, 136) 47.957%, rgb(97, 97, 97) 50.447%, rgb(72, 72, 72) 54.465%, rgb(48, 48, 48) 58.484%, rgb(24, 24, 24) 62.502%, rgb(12, 12, 12) 64.511%, rgb(6, 6, 6) 65.516%, rgb(0, 0, 0) 66.52%, rgb(0, 0, 0) 75%, rgb(0, 0, 0) 94.122%, rgb(6, 6, 6) 95.122%, rgb(12, 12, 12) 96.122%, rgb(24, 24, 24) 98.122%, rgb(48, 48, 48) 102.12%, rgb(72, 72, 72) 106.12%, rgb(97, 97, 97) 110.12%); opacity:1; height: 100%; width: 100%;'></div></foreignObject></g></svg>");
+  background-image: var(--button-border);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.portfolio-contact-button:not([data-visual-state="default"]):hover,
+.portfolio-contact-button[data-active="true"],
+.portfolio-contact-button[data-visual-state="hover"] {
+  --button-border: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 199 79' preserveAspectRatio='none'><g transform='matrix(3.3557e-7 4.1835 -10.538 5.9973e-7 99.5 39.5)'><foreignObject x='-179.4' y='-179.4' width='358.79' height='358.79'><div xmlns='http://www.w3.org/1999/xhtml' style='background-image: conic-gradient(from 90deg, rgb(74, 120, 255) -5.8782%, rgb(56, 155, 255) 2.1213%, rgb(38, 190, 255) 10.121%, rgb(65, 198, 255) 11.498%, rgb(92, 206, 255) 12.875%, rgb(146, 222, 255) 15.629%, rgb(201, 239, 255) 18.383%, rgb(255, 255, 255) 21.137%, rgb(255, 255, 255) 32.64%, rgb(255, 255, 255) 40.49%, rgb(210, 221, 255) 42.979%, rgb(165, 188, 255) 45.468%, rgb(119, 154, 255) 47.957%, rgb(74, 120, 255) 50.447%, rgb(53, 100, 237) 66.52%, rgb(53, 100, 237) 75%, rgb(74, 120, 255) 94.122%, rgb(56, 155, 255) 102.12%, rgb(38, 190, 255) 110.12%); opacity:1; height: 100%; width: 100%;'></div></foreignObject></g></svg>");
+}
+
+.portfolio-contact-button[data-visual-state="default"] {
+  --button-border: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 163 68' preserveAspectRatio='none'><g transform='matrix(2.7486e-7 3.601 -8.6318 5.1622e-7 81.5 34)'><foreignObject x='-179.4' y='-179.4' width='358.79' height='358.79'><div xmlns='http://www.w3.org/1999/xhtml' style='background-image: conic-gradient(from 90deg, rgb(0, 0, 0) -5.8782%, rgb(6, 6, 6) -4.8783%, rgb(12, 12, 12) -3.8783%, rgb(24, 24, 24) -1.8784%, rgb(48, 48, 48) 2.1213%, rgb(72, 72, 72) 6.1211%, rgb(97, 97, 97) 10.121%, rgb(136, 136, 136) 12.875%, rgb(176, 176, 176) 15.629%, rgb(215, 215, 215) 18.383%, rgb(255, 255, 255) 21.137%, rgb(255, 255, 255) 32.64%, rgb(255, 255, 255) 40.49%, rgb(215, 215, 215) 42.979%, rgb(176, 176, 176) 45.468%, rgb(136, 136, 136) 47.957%, rgb(97, 97, 97) 50.447%, rgb(72, 72, 72) 54.465%, rgb(48, 48, 48) 58.484%, rgb(24, 24, 24) 62.502%, rgb(12, 12, 12) 64.511%, rgb(6, 6, 6) 65.516%, rgb(0, 0, 0) 66.52%, rgb(0, 0, 0) 75%, rgb(0, 0, 0) 94.122%, rgb(6, 6, 6) 95.122%, rgb(12, 12, 12) 96.122%, rgb(24, 24, 24) 98.122%, rgb(48, 48, 48) 102.12%, rgb(72, 72, 72) 106.12%, rgb(97, 97, 97) 110.12%); opacity:1; height: 100%; width: 100%;'></div></foreignObject></g></svg>");
+}
+
+.portfolio-contact-button__bg {
+  background-image: linear-gradient(
+    -61.336573742014934deg,
+    rgb(0 0 0) 9.7822%,
+    rgb(54 54 54) 65.441%,
+    rgb(120 120 120) 93.009%
+  );
+}
+
+.portfolio-contact-button:not([data-visual-state="default"]):hover
+  .portfolio-contact-button__bg,
+.portfolio-contact-button[data-active="true"] .portfolio-contact-button__bg,
+.portfolio-contact-button[data-visual-state="hover"] .portfolio-contact-button__bg {
+  background-image: linear-gradient(
+    -60.22628111965179deg,
+    rgb(77 116 255) 9.7822%,
+    rgb(0 174 255) 65.441%,
+    rgb(153 201 255) 93.009%
+  );
+}
+
+.portfolio-telegram-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-telegram-icon__plane {
+  display: block;
+  height: 78.45%;
+  left: 10.78%;
+  max-width: none;
+  pointer-events: none;
+  position: absolute;
+  top: 10.78%;
+  transform-origin: 50% 50%;
+  user-select: none;
+  width: 78.45%;
+  will-change: transform, opacity;
+}
+
+.portfolio-contact-button:not([data-visual-state="default"]):hover
+  .portfolio-telegram-icon__plane,
+.portfolio-contact-button[data-active="true"] .portfolio-telegram-icon__plane,
+.portfolio-contact-button[data-visual-state="hover"] .portfolio-telegram-icon__plane {
+  animation: portfolio-telegram-flight 1006ms ease-out infinite;
+}
+
+@keyframes portfolio-telegram-flight {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+
+  10.04% {
+    opacity: 1;
+    transform: translate3d(6.6px, -0.4px, 0) rotate(2deg) scale(0.7);
+  }
+
+  20.08% {
+    opacity: 1;
+    transform: translate3d(7.2px, -8.2px, 0) rotate(-58deg) scale(0.36);
+  }
+
+  30.12% {
+    opacity: 1;
+    transform: translate3d(6.6px, -10.2px, 0) rotate(-151deg) scale(0.26);
+  }
+
+  40.16% {
+    opacity: 1;
+    transform: translate3d(-2.7px, -6px, 0) rotate(-189deg) scale(0.23);
+  }
+
+  50.2% {
+    opacity: 1;
+    transform: translate3d(-8.4px, 6.2px, 0) rotate(-251deg) scale(0.39);
+  }
+
+  60.24% {
+    opacity: 1;
+    transform: translate3d(-5.2px, 5.4px, 0) rotate(-306deg) scale(0.58);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(-360deg) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-contact-button:not([data-visual-state="default"]):hover
+    .portfolio-telegram-icon__plane,
+  .portfolio-contact-button[data-active="true"] .portfolio-telegram-icon__plane,
+  .portfolio-contact-button[data-visual-state="hover"]
+    .portfolio-telegram-icon__plane {
+    animation: none;
+  }
+}

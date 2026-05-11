@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+:root {
+  --background: #818181;
+  --foreground: #ffffff;
+  --font-display: "Atyp Display", Arial, Helvetica, sans-serif;
+  --font-serif-display: "EB Garamond", "Times New Roman", Georgia, serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-display);
+  --font-serif: var(--font-serif-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.figma-sans {
+  font-family: var(--font-display);
+}
+
+.figma-golos {
+  font-family: var(--font-golos), Arial, Helvetica, sans-serif;
+}
+
+.figma-serif {
+  font-family: var(--font-serif-display);
+}
+
+.contact-gradient {
+  background-image: linear-gradient(
+    -62.92deg,
+    rgb(0, 0, 0) 9.782%,
+    rgb(54, 54, 54) 65.441%,
+    rgb(120, 120, 120) 93.009%
+  );
+}
+
+.ticket-gradient {
+  background:
+    radial-gradient(
+      150% 100% at 92% 4%,
+      rgb(255, 255, 255) 0%,
+      rgb(235, 235, 235) 100%
+    );
+}
+
+.tile-gradient {
+  background:
+    radial-gradient(
+      110% 120% at 68% 76%,
+      rgb(174, 174, 174) 1.221%,
+      rgb(215, 215, 215) 50.61%,
+      rgb(255, 255, 255) 100%
+    );
+}
+
+.widget-gradient {
+  background:
+    radial-gradient(
+      120% 100% at 88% 86%,
+      rgb(218, 218, 218) 0%,
+      rgb(255, 255, 255) 100%
+    );
+}
+
+.segment-active {
+  --fill-0: #ffffff;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      130% 160% at 78% 83%,
+      rgb(7, 7, 7) 34.742%,
+      rgb(17, 17, 17) 38.82%,
+      rgb(26, 26, 26) 42.899%,
+      rgb(45, 45, 45) 51.056%,
+      rgb(64, 64, 64) 59.214%,
+      rgb(83, 83, 83) 67.371%,
+      rgb(121, 121, 121) 83.685%,
+      rgb(159, 159, 159) 100%
+    );
+}
+
+.segment-idle {
+  --fill-0: #373737;
+  color: #373737;
+  background:
+    radial-gradient(
+      125% 120% at 80% 88%,
+      rgb(207, 207, 207) 22.861%,
+      rgb(255, 255, 255) 100%
+    );
+}
+
+@media (max-width: 767px) {
+  .contact-gradient {
+    background-image: linear-gradient(
+      -34.04deg,
+      rgb(0, 0, 0) 9.782%,
+      rgb(54, 54, 54) 65.441%,
+      rgb(120, 120, 120) 93.009%
+    );
+  }
+}
