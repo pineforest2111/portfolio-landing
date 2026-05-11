@@ -9,7 +9,7 @@ export function ContactAction(props: ContactActionProps) {
     <Button
       {...props}
       onClick={() => {
-        window.location.href = "mailto:hello@romaosipov.com";
+        window.location.href = "https://t.me/R_Roman_Osipov";
       }}
       type="button"
     />
