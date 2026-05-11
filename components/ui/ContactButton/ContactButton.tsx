@@ -15,7 +15,7 @@ export type ContactButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const baseClasses =
-  "portfolio-contact-button group relative inline-flex shrink-0 overflow-hidden p-[2px] text-center text-white outline-none transition-all duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[#26beff] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-45";
+  "portfolio-contact-button group relative inline-flex shrink-0 cursor-pointer overflow-hidden p-[2px] text-center text-white outline-none transition-all duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[#26beff] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-45";
 
 const sizeClasses: Record<ContactButtonSize, string> = {
   sm: "h-[54px] w-[130px] rounded-[19px] hover:h-[63px] hover:w-[159px] hover:rounded-[21px]",
