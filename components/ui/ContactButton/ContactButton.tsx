@@ -166,7 +166,7 @@ export function ContactButton({
               src="/contact-message.svg"
               width={defaultIconSize[size]}
             />
-            <span>{children}</span>
+            <span className="portfolio-contact-button__label">{children}</span>
           </span>
 
           <span
@@ -181,7 +181,7 @@ export function ContactButton({
             )}
           >
             <TelegramIcon size={hoverIconSize[size]} />
-            <span>{hoverLabel}</span>
+            <span className="portfolio-contact-button__label">{hoverLabel}</span>
           </span>
         </span>
       )}

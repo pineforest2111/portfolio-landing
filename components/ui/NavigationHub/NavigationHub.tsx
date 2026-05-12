@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InfoWidget } from "@/components/ui/InfoWidget";
 import { NavigationBar } from "@/components/ui/NavigationBar";
 import { cn } from "@/lib/utils";
@@ -17,36 +20,70 @@ export type NavigationHubProps = HTMLAttributes<HTMLDivElement> & {
 
 export function NavigationHub({
   className,
-  state = "default",
+  state,
   ...props
 }: NavigationHubProps) {
-  const isCollapsed = state === "collapsed";
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [internalState, setInternalState] =
+    useState<NavigationHubState>("default");
+  const currentState = state ?? internalState;
+  const isControlled = state !== undefined;
+  const isCollapsed = currentState === "collapsed";
+
+  const setExpanded = (expanded: boolean) => {
+    if (!isControlled) {
+      setInternalState(expanded ? "collapsed" : "default");
+    }
+  };
+
+  useEffect(() => {
+    if (isControlled || currentState !== "collapsed") {
+      return;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        setExpanded(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [currentState, isControlled]);
 
   return (
     <div
       className={cn("portfolio-navigation-hub", className)}
-      data-state={state}
+      data-state={currentState}
+      ref={rootRef}
       {...props}
     >
       {isCollapsed ? (
         <>
           <InfoWidget variant="expanded" />
-          <CloseSegment />
+          <CloseSegment onClick={() => setExpanded(false)} />
         </>
       ) : (
         <>
           <MicroWidget
             className="portfolio-navigation-hub__micro--showreel"
-            expanded={state === "showreel-hover"}
+            expanded={currentState === "showreel-hover"}
             type="showreel"
           />
           <MicroWidget
             className="portfolio-navigation-hub__micro--cv"
-            expanded={state === "cv-hover"}
+            expanded={currentState === "cv-hover"}
             type="cv"
           />
           <div className="portfolio-navigation-hub__widget">
-            <InfoWidget variant="compact" />
+            <InfoWidget
+              aria-label="Open Roma Osipov details"
+              onClick={() => setExpanded(true)}
+              variant="compact"
+            />
           </div>
           <NavigationBar />
         </>
@@ -100,28 +137,21 @@ function MicroWidget({
     </>
   );
 
-  if (!isShowreel) {
-    return (
-      <a
-        aria-label="Open CV PDF"
-        className={cn("portfolio-navigation-hub__micro", className)}
-        data-expanded={expanded}
-        href="https://drive.google.com/file/d/1cibmwtwtp0VnAqhU7wOAD7hCkTdmhxmB/view?usp=sharing"
-        rel="noreferrer"
-        target="_blank"
-      >
-        {content}
-      </a>
-    );
-  }
-
   return (
-    <div
+    <a
+      aria-label={isShowreel ? "Open showreel" : "Open CV PDF"}
       className={cn("portfolio-navigation-hub__micro", className)}
       data-expanded={expanded}
+      href={
+        isShowreel
+          ? "https://drive.google.com/file/d/10rtY42NRzh94PVRuXOQ0QvJpB_C1x1m7/view?usp=sharing"
+          : "https://drive.google.com/file/d/1cibmwtwtp0VnAqhU7wOAD7hCkTdmhxmB/view?usp=sharing"
+      }
+      rel="noreferrer"
+      target="_blank"
     >
       {content}
-    </div>
+    </a>
   );
 }
 

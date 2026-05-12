@@ -24,6 +24,10 @@
   );
 }
 
+.portfolio-contact-button__label {
+  transform: translateY(1px);
+}
+
 .portfolio-contact-button:not([data-visual-state="default"]):hover
   .portfolio-contact-button__bg,
 .portfolio-contact-button[data-active="true"] .portfolio-contact-button__bg,

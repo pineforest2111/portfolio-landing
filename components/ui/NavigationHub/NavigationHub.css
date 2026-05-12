@@ -71,6 +71,7 @@
 .portfolio-navigation-hub__micro {
   align-items: center;
   color: inherit;
+  cursor: pointer;
   display: flex;
   height: 123.836px;
   justify-content: center;
@@ -82,15 +83,14 @@
     top 180ms ease-out,
     height 180ms ease-out,
     width 180ms ease-out;
+  text-decoration: none;
   width: 181.212px;
   z-index: 1;
 }
 
 .portfolio-navigation-hub__micro--cv {
-  cursor: pointer;
   height: 98.921px;
   left: 196.89px;
-  text-decoration: none;
   top: -68px;
   width: 176.792px;
 }

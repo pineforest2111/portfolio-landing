@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export type InfoWidgetVariant = "compact" | "expanded";
 
-export type InfoWidgetProps = HTMLAttributes<HTMLDivElement> & {
+export type InfoWidgetProps = HTMLAttributes<HTMLElement> & {
   variant?: InfoWidgetVariant;
 };
 
@@ -36,6 +36,16 @@ const stats = [
       </>
     ),
   },
+] as const;
+
+const tags = [
+  "UX research",
+  "UI design",
+  "3d graphic (c4d)",
+  "Motion design",
+  "AI-graphic",
+  "No code development",
+  "Vibe-coding",
 ] as const;
 
 export function InfoWidget({
@@ -72,9 +82,8 @@ export function InfoWidget({
         <div className="portfolio-info-widget-expanded__content">
           <h2 id="info-widget-expanded-title">About me</h2>
           <div className="portfolio-info-widget-expanded__copy">
-            <p>Multidisciplinary product designer</p>
             <p>
-              Lead UX/UI &amp; 3D Designer at{" "}
+              Now I&apos;m Lead UX/UI designer at studio{" "}
               <a
                 href="https://www.zephyrlab.ru/"
                 rel="noreferrer"
@@ -82,10 +91,8 @@ export function InfoWidget({
               >
                 Zephyrlab
               </a>
-            </p>
-            <p>
-              Ex art-director and mentor <br />
-              at design school{" "}
+              , <br />
+              Ex art-director and mentor at design school{" "}
               <a
                 href="https://wannabe.ru/"
                 rel="noreferrer"
@@ -95,6 +102,17 @@ export function InfoWidget({
               </a>
             </p>
           </div>
+        </div>
+
+        <div
+          aria-label="Skills"
+          className="portfolio-info-widget-expanded__tags"
+        >
+          {tags.map((tag) => (
+            <span className="portfolio-info-widget-expanded__tag" key={tag}>
+              {tag}
+            </span>
+          ))}
         </div>
 
         <div className="portfolio-info-widget-expanded__stats">
@@ -116,7 +134,11 @@ export function InfoWidget({
   }
 
   return (
-    <button className={cn("portfolio-info-widget-compact", className)} type="button">
+    <button
+      className={cn("portfolio-info-widget-compact", className)}
+      type="button"
+      {...props}
+    >
       <span className="portfolio-info-widget-compact__inner">
         <span className="portfolio-info-widget-compact__avatar">
           <Image
@@ -132,9 +154,9 @@ export function InfoWidget({
             I&apos;m Roma Osipov
           </span>
           <span className="portfolio-info-widget-compact__description">
-            Create powerful, interactive interfaces <br />
-            based on reseach and deep dive <br />
-            with strong visual and 3d stuff
+            Product designer with five years of <br />
+            professional experience working <br />
+            with mobile &amp; web products
           </span>
         </span>
       </span>
