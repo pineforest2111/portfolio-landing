@@ -5,7 +5,7 @@ import { NavigationHub } from "@/components/ui/NavigationHub";
 function BackgroundVisual() {
   return (
     <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
-      <div className="absolute left-[-5.56%] right-[-5.56%] top-0 hidden aspect-[1600/1058] md:block">
+      <div className="absolute bottom-[-158px] left-[-5.56%] right-[-5.56%] top-0 hidden md:block">
         <Image
           src="/images/erbghj%201.png"
           alt=""
@@ -52,7 +52,9 @@ export default function Home() {
     <main className="relative isolate min-h-[max(852px,100vh)] overflow-hidden bg-[#747474] text-white md:min-h-[max(900px,100vh)] md:bg-[#818181]">
       <BackgroundVisual />
       <Heading />
-      <NavigationHub className="absolute bottom-[79px] left-1/2 -translate-x-1/2 max-[430px]:scale-[0.88] md:bottom-6 md:scale-100" />
+      <div className="portfolio-navigation-hub-shell">
+        <NavigationHub />
+      </div>
       <div className="absolute bottom-[18px] left-1/2 -translate-x-1/2 md:hidden">
         <ContactAction aria-label="Contact me" />
       </div>

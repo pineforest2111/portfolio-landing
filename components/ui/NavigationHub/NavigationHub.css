@@ -18,11 +18,13 @@
   flex: 0 0 auto;
   height: 136px;
   position: relative;
+  transition: height 160ms ease-out;
   width: 422px;
 }
 
 .portfolio-navigation-hub[data-state="widget-hover"]
-  .portfolio-navigation-hub__widget {
+  .portfolio-navigation-hub__widget,
+.portfolio-navigation-hub__widget:hover {
   height: 144px;
 }
 
@@ -33,12 +35,34 @@
   z-index: 2;
 }
 
+.portfolio-navigation-hub__widget .portfolio-info-widget-compact {
+  transition: height 160ms ease-out;
+}
+
+.portfolio-navigation-hub__widget .portfolio-info-widget-compact__inner {
+  transition:
+    height 160ms ease-out,
+    padding 160ms ease-out;
+}
+
 .portfolio-navigation-hub[data-state="widget-hover"]
+  .portfolio-info-widget-compact,
+.portfolio-navigation-hub__widget:hover
   .portfolio-info-widget-compact {
   height: 144px;
 }
 
 .portfolio-navigation-hub[data-state="widget-hover"]
+  .portfolio-info-widget-compact,
+.portfolio-navigation-hub__widget:hover
+  .portfolio-info-widget-compact {
+  --info-widget-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 422 144' preserveAspectRatio='none'%3E%3Cg transform='matrix(0.0000013835 7.0599 -20.689 0.000004554 211 77.657)'%3E%3CforeignObject x='-193.77' y='-193.77' width='387.54' height='387.54'%3E%3Cdiv xmlns='http://www.w3.org/1999/xhtml' style='background-image: conic-gradient(from 90deg, rgb(133, 133, 133) 0%25, rgb(164, 164, 164) 3.4856%25, rgb(194, 194, 194) 6.9712%25, rgb(255, 255, 255) 13.942%25, rgb(255, 255, 255) 25%25, rgb(255, 255, 255) 32.304%25, rgb(255, 255, 255) 51.927%25, rgb(194, 194, 194) 59.379%25, rgb(163, 163, 163) 63.105%25, rgb(133, 133, 133) 66.831%25, rgb(133, 133, 133) 100%25); opacity:1; height: 100%25; width: 100%25;'%3E%3C/div%3E%3C/foreignObject%3E%3C/g%3E%3C/svg%3E");
+  height: 144px;
+}
+
+.portfolio-navigation-hub[data-state="widget-hover"]
+  .portfolio-info-widget-compact__inner,
+.portfolio-navigation-hub__widget:hover
   .portfolio-info-widget-compact__inner {
   height: 140px;
   padding: 14px 12px;
