@@ -17,7 +17,7 @@ function BackgroundVisual() {
       </div>
       <div className="portfolio-mobile-background md:hidden">
         <Image
-          src="/images/erbghj%201.png"
+          src="/images/Mobile%20BG.png"
           alt=""
           fill
           priority
@@ -35,7 +35,7 @@ function Heading() {
       <p className="figma-golos text-xs font-medium leading-none text-white/25 md:text-xl md:font-normal md:leading-[1.1] md:text-white/[0.12]">
         upd: 01.2026
       </p>
-      <div className="mt-[18px] md:mt-8">
+      <div className="mt-6 md:mt-8">
         <h1 className="figma-serif mx-auto text-[40px] font-normal leading-[0.85] text-white md:text-[80px] md:leading-[0.8]">
           <span className="whitespace-nowrap">Product designer with</span>
           <br />
