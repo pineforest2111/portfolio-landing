@@ -34,12 +34,53 @@ a {
   text-decoration: none;
 }
 
+.portfolio-hero {
+  background: linear-gradient(180deg, #828282 18.526%, #656565 66.686%);
+  color: #ffffff;
+  height: 100dvh;
+  isolation: isolate;
+  min-height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-heading {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 90.75px;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.portfolio-mobile-background {
+  aspect-ratio: 1600 / 1058;
+  bottom: 31.78dvh;
+  left: calc(50% - 0.44px);
+  position: absolute;
+  transform: translateX(-50%);
+  width: 164.38vw;
+}
+
+.portfolio-mobile-contact-shell {
+  left: 50%;
+  position: absolute;
+  top: 209.82px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.portfolio-mobile-contact-button {
+  transform: scale(0.898);
+  transform-origin: 50% 50%;
+}
+
 .portfolio-navigation-hub-shell {
-  bottom: 28px;
+  bottom: 86.48px;
   left: 50%;
   position: absolute;
   translate: none;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(0.86);
   transform-origin: 50% 100%;
   width: 438px;
   z-index: 2;
@@ -124,7 +165,8 @@ a {
 
 @media (max-width: 767px) {
   .portfolio-navigation-hub-shell {
-    transform: translateX(-50%) scale(0.88);
+    bottom: max(70px, 10.15dvh);
+    transform: translateX(-50%) scale(0.86);
   }
 
   .contact-gradient {
@@ -134,5 +176,23 @@ a {
       rgb(54, 54, 54) 65.441%,
       rgb(120, 120, 120) 93.009%
     );
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-hero {
+    background: #818181;
+    height: auto;
+    min-height: max(900px, 100vh);
+  }
+
+  .portfolio-heading {
+    top: 12px;
+    width: 692px;
+  }
+
+  .portfolio-navigation-hub-shell {
+    bottom: 28px;
+    transform: translateX(-50%);
   }
 }
