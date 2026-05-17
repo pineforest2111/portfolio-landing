@@ -124,6 +124,100 @@ a {
   z-index: 2;
 }
 
+.portfolio-concepts {
+  background: #7d7f7f;
+  color: #ffffff;
+  min-height: 100dvh;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-concepts__wall {
+  height: 900px;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1368px;
+  z-index: 1;
+}
+
+.portfolio-concepts__tile {
+  background: transparent;
+  border: 8px solid #ffffff;
+  border-radius: var(--concept-radius);
+  display: block;
+  overflow: hidden;
+  position: absolute;
+}
+
+.portfolio-concepts__tile-image {
+  border-radius: max(0px, calc(var(--concept-radius) - 8px));
+  object-fit: cover;
+}
+
+.portfolio-concepts__tile-video {
+  border-radius: max(0px, calc(var(--concept-radius) - 8px));
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  width: 100%;
+}
+
+.portfolio-concepts__tile--crop-left .portfolio-concepts__tile-image {
+  left: -10% !important;
+  width: 120% !important;
+}
+
+.portfolio-concepts__tile--crop-wide .portfolio-concepts__tile-image {
+  height: 112% !important;
+  left: -4.5% !important;
+  top: -4% !important;
+  width: 109% !important;
+}
+
+.portfolio-concepts__hint {
+  color: rgb(255 255 255 / 34%);
+  font-family: var(--font-golos), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  left: 50%;
+  line-height: normal;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: calc(50% - 89.63px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.portfolio-concepts__title {
+  color: #ffffff;
+  font-family: var(--font-eb-garamond), "Times New Roman", Georgia, serif;
+  font-size: 74px;
+  font-weight: 400;
+  left: 50%;
+  line-height: 0.85;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: calc(50% - 55.5px);
+  transform: translateX(-50%);
+  width: 497px;
+  z-index: 2;
+}
+
+.portfolio-concepts .portfolio-concepts__navigation {
+  bottom: 28px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
 .portfolio-case {
   background: #f7f7f7;
   color: #000000;
@@ -246,63 +340,90 @@ a {
 }
 
 .portfolio-case-back {
+  --case-back-border: conic-gradient(
+    from 90deg,
+    #000000 -5.8782%,
+    #060606 -4.8783%,
+    #0c0c0c -3.8783%,
+    #181818 -1.8784%,
+    #303030 2.1213%,
+    #484848 6.1211%,
+    #616161 10.121%,
+    #888888 12.875%,
+    #b0b0b0 15.629%,
+    #d7d7d7 18.383%,
+    #ffffff 21.137%,
+    #ffffff 32.64%,
+    #ffffff 40.49%,
+    #d7d7d7 42.979%,
+    #b0b0b0 45.468%,
+    #888888 47.957%,
+    #616161 50.447%,
+    #484848 54.465%,
+    #303030 58.484%,
+    #181818 62.502%,
+    #0c0c0c 64.511%,
+    #060606 65.516%,
+    #000000 66.52%,
+    #000000 75%,
+    #000000 94.122%,
+    #060606 95.122%,
+    #0c0c0c 96.122%,
+    #181818 98.122%,
+    #303030 102.12%,
+    #484848 106.12%,
+    #616161 110.12%
+  );
+  --case-back-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 92 44' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-1.7582 5.439 -11.372 -3.4355 70.907 36.474)'%3E%3Cstop stop-color='rgb(7,7,7)' offset='0.34742'/%3E%3Cstop stop-color='rgb(17,17,17)' offset='0.3882'/%3E%3Cstop stop-color='rgb(26,26,26)' offset='0.42899'/%3E%3Cstop stop-color='rgb(45,45,45)' offset='0.51056'/%3E%3Cstop stop-color='rgb(64,64,64)' offset='0.59214'/%3E%3Cstop stop-color='rgb(83,83,83)' offset='0.67371'/%3E%3Cstop stop-color='rgb(121,121,121)' offset='0.83685'/%3E%3Cstop stop-color='rgb(159,159,159)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E");
   align-items: center;
-  background:
-    radial-gradient(
-      130% 160% at 78% 83%,
-      rgb(7, 7, 7) 34.742%,
-      rgb(17, 17, 17) 38.82%,
-      rgb(26, 26, 26) 42.899%,
-      rgb(45, 45, 45) 51.056%,
-      rgb(64, 64, 64) 59.214%,
-      rgb(83, 83, 83) 67.371%,
-      rgb(121, 121, 121) 83.685%,
-      rgb(159, 159, 159) 100%
-    );
-  border: 2px solid #000000;
-  border-radius: 20px;
+  background: transparent;
+  border: 0;
+  border-radius: 18px;
   bottom: 28px;
   color: #ffffff;
   cursor: pointer;
   display: flex;
   font-family: var(--font-golos), Arial, Helvetica, sans-serif;
   font-size: 16px;
-  gap: 4px;
   left: 50%;
   line-height: 1.1;
-  padding: 16px 20px;
+  overflow: hidden;
+  padding: 2px;
   position: fixed;
   transform: translateX(-50%);
+  width: 96px;
   z-index: 5;
 }
 
-.portfolio-case-back__arrow {
-  height: 20px;
+.portfolio-case-back::before {
+  background-image: var(--case-back-border);
+  content: "";
+  height: 358.79px;
+  left: 50%;
+  margin-left: -179.395px;
+  margin-top: -179.395px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: matrix(0.00000016188, 2.5419, -5.0837, 0.00000036439, 0, 0);
+  transform-origin: center;
+  width: 358.79px;
+  z-index: 0;
+}
+
+.portfolio-case-back__inner {
+  align-items: center;
+  background-image: var(--case-back-bg);
+  background-size: 100% 100%;
+  border-radius: 16px;
+  display: flex;
+  gap: 6px;
+  height: 44px;
+  justify-content: center;
+  padding: 22px 14px;
   position: relative;
-  transform: rotate(180deg);
-  width: 20px;
-}
-
-.portfolio-case-back__arrow::before {
-  border-right: 2px solid currentColor;
-  border-top: 2px solid currentColor;
-  content: "";
-  height: 8px;
-  position: absolute;
-  right: 4px;
-  top: 5px;
-  transform: rotate(45deg);
-  width: 8px;
-}
-
-.portfolio-case-back__arrow::after {
-  background: currentColor;
-  content: "";
-  height: 2px;
-  left: 4px;
-  position: absolute;
-  top: 9px;
-  width: 12px;
+  width: 92px;
+  z-index: 1;
 }
 
 .portfolio-navigation-hub-shell {
@@ -398,8 +519,12 @@ a {
     overflow-x: hidden;
   }
 
-  .portfolio-page:not([data-active-section="myskazka"])
-    .portfolio-section[data-section="myskazka"],
+  .portfolio-page[data-active-section="about"]
+    .portfolio-section:not([data-section="about"]),
+  .portfolio-page[data-active-section="works"]
+    .portfolio-section:not([data-section="works"]),
+  .portfolio-page[data-active-section="concepts"]
+    .portfolio-section:not([data-section="concepts"]),
   .portfolio-page[data-active-section="myskazka"]
     .portfolio-section:not([data-section="myskazka"]) {
     display: none;
@@ -428,8 +553,43 @@ a {
   }
 
   .portfolio-works .portfolio-works__project-widget {
-    bottom: 78px;
+    bottom: 67px;
     transform: translateX(-50%) scale(0.9);
+    transform-origin: 50% 100%;
+  }
+
+  .portfolio-works .portfolio-works__navigation {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    position: fixed;
+    transform: translateX(-50%) scale(0.86);
+    transform-origin: 50% 100%;
+  }
+
+  .portfolio-concepts {
+    min-height: 100dvh;
+  }
+
+  .portfolio-concepts__wall {
+    top: 30px;
+    transform: translateX(-50%) scale(0.55);
+    transform-origin: 50% 0;
+  }
+
+  .portfolio-concepts__hint {
+    font-size: 12px;
+    top: calc(50% - 58px);
+  }
+
+  .portfolio-concepts__title {
+    font-size: 42px;
+    top: calc(50% - 30px);
+    width: min(86vw, 360px);
+  }
+
+  .portfolio-concepts .portfolio-concepts__navigation {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    position: fixed;
+    transform: translateX(-50%) scale(0.86);
     transform-origin: 50% 100%;
   }
 
@@ -456,6 +616,8 @@ a {
     .portfolio-section:not([data-section="about"]),
   .portfolio-page[data-active-section="works"]
     .portfolio-section:not([data-section="works"]),
+  .portfolio-page[data-active-section="concepts"]
+    .portfolio-section:not([data-section="concepts"]),
   .portfolio-page[data-active-section="myskazka"]
     .portfolio-section:not([data-section="myskazka"]) {
     display: none;
@@ -483,6 +645,11 @@ a {
   }
 
   .portfolio-works {
+    height: 100vh;
+    min-height: max(900px, 100vh);
+  }
+
+  .portfolio-concepts {
     height: 100vh;
     min-height: max(900px, 100vh);
   }

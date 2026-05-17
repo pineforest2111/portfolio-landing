@@ -1,43 +1,142 @@
 "use client";
 
 import Image from "next/image";
-import type { MouseEvent, ReactNode } from "react";
+import type { CSSProperties, MouseEvent, ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { ContactAction } from "@/components/landing/ContactAction";
 import type { NavigationBarItemId } from "@/components/ui/NavigationBar";
 import { NavigationHub } from "@/components/ui/NavigationHub";
 import { ProjectWidget } from "@/components/ui/ProjectWidget";
 
-type PortfolioSection = "about" | "works" | "myskazka";
+type PortfolioSection = "about" | "works" | "concepts" | "myskazka";
+
+type ConceptTile = {
+  alt: string;
+  className?: string;
+  mediaType?: "image" | "video";
+  radius: number;
+  src?: string;
+  style: CSSProperties;
+};
+
+const conceptTiles: ConceptTile[] = [
+  {
+    alt: "Color-correct concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/color-correct-shot.mp4",
+    style: { height: 89.302, left: 545.5, top: 183.33, width: 120 },
+  },
+  {
+    alt: "Mobile concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/mobile-shot-3.mp4",
+    style: { height: 89.674, left: 894.31, top: 245.01, width: 120.5 },
+  },
+  {
+    alt: "Web concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/web-shot-3.mp4",
+    style: { height: 88.93, left: 806.5, top: 183.33, width: 119.5 },
+  },
+  {
+    alt: "Best concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/best.mp4",
+    style: { height: 89.768, left: 441.87, top: 227.98, width: 120.626 },
+  },
+  {
+    alt: "Web shot concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/web-shot-2.mp4",
+    style: { height: 89.768, left: 251.24, top: 376.37, width: 120.626 },
+  },
+  {
+    alt: "Composed concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/compossed.mp4",
+    style: { height: 89.768, left: 311.55, top: 433.87, width: 120.626 },
+  },
+  {
+    alt: "Compact web concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/web-shot-3.mp4",
+    style: { height: 62.037, left: 288.51, top: 492.62, width: 83.362 },
+  },
+  {
+    alt: "AAA concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/aaa.mp4",
+    style: { height: 89.768, left: 493.37, top: 618.1, width: 120.626 },
+  },
+  {
+    alt: "Mobile concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/mob-1-shot.mp4",
+    style: { height: 89.768, left: 589.19, top: 594.53, width: 120.626 },
+  },
+  {
+    alt: "Tale concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/tale-shot.mp4",
+    style: { height: 89.768, left: 773.69, top: 567.81, width: 120.626 },
+  },
+  {
+    alt: "Mobile concept animation",
+    mediaType: "video",
+    radius: 16,
+    src: "/videos/mobile-shot-2.mp4",
+    style: { height: 89.674, left: 990.01, top: 432.9, width: 120.5 },
+  },
+  {
+    alt: "Map concept",
+    className: "portfolio-concepts__tile--crop-left",
+    radius: 16,
+    src: "/images/concepts/concept-17.png",
+    style: { height: 56.163, left: 1076.01, top: 393.84, width: 77.321 },
+  },
+  {
+    alt: "Product concept",
+    className: "portfolio-concepts__tile--crop-left",
+    radius: 16,
+    src: "/images/concepts/concept-05.png",
+    style: { height: 54.533, left: 906.17, top: 217.73, width: 73.278 },
+  },
+  {
+    alt: "Render concept",
+    radius: 16,
+    src: "/images/concepts/concept-04.png",
+    style: { height: 60.664, left: 861.5, top: 636.1, width: 81.517 },
+  },
+];
 
 export function PortfolioPage() {
   const [activeSection, setActiveSection] = useState<PortfolioSection>("about");
 
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
-    if (hash === "works" || hash === "myskazka") {
-      setActiveSection("works");
-      if (hash === "myskazka") {
-        setActiveSection("myskazka");
-      }
+    if (hash === "works" || hash === "concepts" || hash === "myskazka") {
+      setActiveSection(hash);
     }
   }, []);
 
   const handleSectionSelect = (item: NavigationBarItemId) => {
-    if (item === "concepts") {
-      return;
-    }
-
     const section: PortfolioSection = item;
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     setActiveSection(section);
     window.history.replaceState(null, "", `#${section}`);
 
     if (isMobile) {
-      document.getElementById(section)?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      window.scrollTo({ behavior: "auto", top: 0 });
     }
   };
 
@@ -46,10 +145,7 @@ export function PortfolioPage() {
     window.history.replaceState(null, "", "#myskazka");
 
     if (window.matchMedia("(max-width: 767px)").matches) {
-      document.getElementById("myskazka")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      window.scrollTo({ behavior: "auto", top: 0 });
     }
   };
 
@@ -58,15 +154,16 @@ export function PortfolioPage() {
     window.history.replaceState(null, "", "#works");
 
     if (window.matchMedia("(max-width: 767px)").matches) {
-      document.getElementById("works")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      window.scrollTo({ behavior: "auto", top: 0 });
     }
   };
 
   const activeNavigationItem: NavigationBarItemId =
-    activeSection === "about" ? "about" : "works";
+    activeSection === "about"
+      ? "about"
+      : activeSection === "concepts"
+        ? "concepts"
+        : "works";
 
   return (
     <main className="portfolio-page" data-active-section={activeSection}>
@@ -77,6 +174,10 @@ export function PortfolioPage() {
       <WorksSection
         activeItem={activeNavigationItem}
         onMySkazkaOpen={openMySkazka}
+        onSectionSelect={handleSectionSelect}
+      />
+      <ConceptsSection
+        activeItem={activeNavigationItem}
         onSectionSelect={handleSectionSelect}
       />
       <MySkazkaCaseSection onBack={closeMySkazka} />
@@ -202,6 +303,78 @@ function WorksSection({
         onItemSelect={onSectionSelect}
       />
     </section>
+  );
+}
+
+function ConceptsSection({
+  activeItem,
+  onSectionSelect,
+}: {
+  activeItem: NavigationBarItemId;
+  onSectionSelect: (item: NavigationBarItemId) => void;
+}) {
+  return (
+    <section
+      aria-labelledby="concepts-title"
+      className="portfolio-concepts portfolio-section"
+      data-section="concepts"
+      id="concepts"
+    >
+      <div className="portfolio-concepts__wall" aria-hidden="true">
+        {conceptTiles.map((tile, index) => (
+          <ConceptTile key={`${tile.src ?? "empty"}-${index}`} tile={tile} />
+        ))}
+      </div>
+      <p className="portfolio-concepts__hint">Scroll down</p>
+      <h2 className="portfolio-concepts__title" id="concepts-title">
+        There&rsquo;s my wall of concepts
+      </h2>
+      <NavigationHub
+        activeItem={activeItem}
+        className="portfolio-concepts__navigation"
+        mode="navigation"
+        onItemSelect={onSectionSelect}
+      />
+    </section>
+  );
+}
+
+function ConceptTile({ tile }: { tile: ConceptTile }) {
+  const style = {
+    ...tile.style,
+    "--concept-radius": `${tile.radius}px`,
+  } as CSSProperties;
+
+  return (
+    <span
+      className={`portfolio-concepts__tile ${
+        tile.className ?? ""
+      }`.trim()}
+      style={style}
+    >
+      {tile.src ? (
+        tile.mediaType === "video" ? (
+          <video
+            aria-label={tile.alt}
+            autoPlay
+            className="portfolio-concepts__tile-video"
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            src={tile.src}
+          />
+        ) : (
+          <Image
+            alt={tile.alt}
+            className="portfolio-concepts__tile-image"
+            fill
+            sizes="220px"
+            src={tile.src}
+          />
+        )
+      ) : null}
+    </span>
   );
 }
 
@@ -331,8 +504,16 @@ function MySkazkaCaseSection({ onBack }: { onBack: () => void }) {
       </article>
 
       <button className="portfolio-case-back" onClick={onBack} type="button">
-        <span aria-hidden className="portfolio-case-back__arrow" />
-        <span>back</span>
+        <span className="portfolio-case-back__inner">
+          <Image
+            alt=""
+            aria-hidden="true"
+            height={20}
+            src="/case-back-arrow-square-left.svg"
+            width={20}
+          />
+          <span>Back</span>
+        </span>
       </button>
     </section>
   );
