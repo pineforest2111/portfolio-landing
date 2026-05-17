@@ -4,7 +4,10 @@ import Image from "next/image";
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { InfoWidget } from "@/components/ui/InfoWidget";
-import { NavigationBar } from "@/components/ui/NavigationBar";
+import {
+  NavigationBar,
+  type NavigationBarItemId,
+} from "@/components/ui/NavigationBar";
 import { cn } from "@/lib/utils";
 
 export type NavigationHubState =
@@ -15,11 +18,17 @@ export type NavigationHubState =
   | "collapsed";
 
 export type NavigationHubProps = HTMLAttributes<HTMLDivElement> & {
+  activeItem?: NavigationBarItemId;
+  mode?: "full" | "navigation";
+  onItemSelect?: (item: NavigationBarItemId) => void;
   state?: NavigationHubState;
 };
 
 export function NavigationHub({
+  activeItem = "about",
   className,
+  mode = "full",
+  onItemSelect,
   state,
   ...props
 }: NavigationHubProps) {
@@ -54,6 +63,23 @@ export function NavigationHub({
     };
   }, [currentState, isControlled]);
 
+  if (mode === "navigation") {
+    return (
+      <div
+        className={cn(
+          "portfolio-navigation-hub portfolio-navigation-hub--navigation",
+          className,
+        )}
+        {...props}
+      >
+        <NavigationBar
+          activeItem={activeItem}
+          onItemSelect={onItemSelect}
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn("portfolio-navigation-hub", className)}
@@ -85,7 +111,10 @@ export function NavigationHub({
               variant="compact"
             />
           </div>
-          <NavigationBar />
+          <NavigationBar
+            activeItem={activeItem}
+            onItemSelect={onItemSelect}
+          />
         </>
       )}
     </div>

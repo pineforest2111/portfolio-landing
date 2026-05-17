@@ -154,8 +154,8 @@ export function InfoWidget({
             I&apos;m Roma Osipov
           </span>
           <span className="portfolio-info-widget-compact__description">
-            Product designer with five years of <br />
-            professional experience working <br />
+            Product designer with five years <br />
+            of professional experience working <br />
             with mobile &amp; web products
           </span>
         </span>

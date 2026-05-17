@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { EB_Garamond } from "next/font/google";
 import { Geist } from "next/font/google";
 import { Golos_Text } from "next/font/google";
 import "./globals.css";
@@ -6,6 +7,8 @@ import "@/components/ui/ContactButton/ContactButton.css";
 import "@/components/ui/InfoWidget/InfoWidget.css";
 import "@/components/ui/NavigationBar/NavigationBar.css";
 import "@/components/ui/NavigationHub/NavigationHub.css";
+import "@/components/ui/CaseItem/CaseItem.css";
+import "@/components/ui/ProjectWidget/ProjectWidget.css";
 
 const golosText = Golos_Text({
   subsets: ["latin", "cyrillic"],
@@ -16,6 +19,12 @@ const golosText = Golos_Text({
 const geistSans = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
+});
+
+const ebGaramond = EB_Garamond({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500"],
+  variable: "--font-eb-garamond",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${golosText.variable} ${geistSans.variable} h-full antialiased`}
+      className={`${golosText.variable} ${geistSans.variable} ${ebGaramond.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

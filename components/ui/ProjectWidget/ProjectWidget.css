@@ -1,0 +1,184 @@
+.portfolio-project-widget {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 362px;
+  justify-content: flex-end;
+  padding: 20px 18px;
+  position: relative;
+  transition:
+    height 180ms ease-out,
+    width 180ms ease-out;
+  width: 374px;
+}
+
+.portfolio-project-widget[data-visual-state="hover"],
+.portfolio-project-widget:has(.portfolio-case-item:hover) {
+  height: 366px;
+  width: 378px;
+}
+
+.portfolio-project-widget__cards,
+.portfolio-project-widget__folder {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.portfolio-project-widget__cards {
+  z-index: 1;
+}
+
+.portfolio-project-widget__folder {
+  z-index: 2;
+}
+
+.portfolio-project-widget__list {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 338px;
+  z-index: 3;
+}
+
+.portfolio-project-widget__case {
+  width: 338px;
+}
+
+.portfolio-project-widget__case .portfolio-case-item__title {
+  width: 230px;
+}
+
+.portfolio-project-widget__card-wrap {
+  align-items: center;
+  display: flex;
+  height: 158px;
+  justify-content: center;
+  position: absolute;
+  transition:
+    left 180ms ease-out,
+    top 180ms ease-out;
+  transform: translate(-50%, -50%);
+  width: 171px;
+}
+
+.portfolio-project-widget__card-wrap--hr {
+  left: calc(50% - 80.06px);
+  top: calc(50% - 185.54px);
+}
+
+.portfolio-project-widget__card-wrap--worldclass {
+  height: 135px;
+  left: calc(50% + 85.58px);
+  top: calc(50% - 159.99px);
+  width: 160px;
+}
+
+.portfolio-project-widget__card-wrap--myskazka {
+  height: 110px;
+  left: calc(50% - 0.65px);
+  top: calc(50% - 182.63px);
+  width: 145px;
+}
+
+.portfolio-project-widget[data-visual-state="hover"]
+  .portfolio-project-widget__card-wrap--hr,
+.portfolio-project-widget:has(.portfolio-case-item:hover)
+  .portfolio-project-widget__card-wrap--hr {
+  left: calc(50% - 96.06px);
+  top: calc(50% - 201.54px);
+}
+
+.portfolio-project-widget[data-visual-state="hover"]
+  .portfolio-project-widget__card-wrap--worldclass,
+.portfolio-project-widget:has(.portfolio-case-item:hover)
+  .portfolio-project-widget__card-wrap--worldclass {
+  left: calc(50% + 113.58px);
+  top: calc(50% - 167.99px);
+}
+
+.portfolio-project-widget[data-visual-state="hover"]
+  .portfolio-project-widget__card-wrap--myskazka,
+.portfolio-project-widget:has(.portfolio-case-item:hover)
+  .portfolio-project-widget__card-wrap--myskazka {
+  top: calc(50% - 190.63px);
+}
+
+.portfolio-project-widget__card-image {
+  display: block;
+  height: auto;
+  object-fit: contain;
+  width: auto;
+}
+
+.portfolio-project-widget__card-wrap--hr .portfolio-project-widget__card-image {
+  height: 105px;
+  transform: rotate(-30deg);
+  width: 138px;
+}
+
+.portfolio-project-widget__card-wrap--worldclass
+  .portfolio-project-widget__card-image {
+  height: 105px;
+  transform: rotate(15deg);
+  width: 138px;
+}
+
+.portfolio-project-widget__card-wrap--myskazka
+  .portfolio-project-widget__card-image {
+  height: 110px;
+  width: 145px;
+}
+
+.portfolio-project-widget__folder-layer--default,
+.portfolio-project-widget__folder-layer--hover {
+  left: 50%;
+  position: absolute;
+}
+
+.portfolio-project-widget__folder-layer--hover {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.portfolio-project-widget[data-visual-state="folder-hover"]
+  .portfolio-project-widget__folder-layer--default {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.portfolio-project-widget[data-visual-state="folder-hover"]
+  .portfolio-project-widget__folder-layer--hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.portfolio-project-widget__folder-shadow.portfolio-project-widget__folder-layer--default {
+  height: 402px;
+  top: -22px;
+  transform: translateX(-50%);
+  width: 414px;
+}
+
+.portfolio-project-widget__folder-shadow.portfolio-project-widget__folder-layer--hover {
+  height: 406px;
+  top: -20px;
+  transform: translateX(calc(-50% + 2px));
+  width: 418px;
+}
+
+.portfolio-project-widget__folder-body.portfolio-project-widget__folder-layer--default {
+  height: 358px;
+  top: 0;
+  transform: translateX(-50%);
+  width: 370px;
+}
+
+.portfolio-project-widget__folder-body.portfolio-project-widget__folder-layer--hover {
+  height: 362px;
+  top: 2px;
+  transform: translateX(calc(-50% + 2px));
+  width: 374px;
+}
