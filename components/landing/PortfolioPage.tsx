@@ -21,101 +21,124 @@ type ConceptTile = {
 
 const conceptTiles: ConceptTile[] = [
   {
-    alt: "Color-correct concept animation",
+    alt: "Mobile particles concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/color-correct-shot.mp4",
-    style: { height: 89.302, left: 545.5, top: 183.33, width: 120 },
+    radius: 28,
+    src: "/videos/mobile%20particles.webm",
+    style: {
+      height: 128.453,
+      left: "calc(50% - 438.93px)",
+      top: "calc(50% - 89.63px)",
+      width: 194.792,
+    },
   },
   {
-    alt: "Mobile concept animation",
+    alt: "Red knitting concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/mobile-shot-3.mp4",
-    style: { height: 89.674, left: 894.31, top: 245.01, width: 120.5 },
+    radius: 28,
+    src: "/videos/red%20knitting.webm",
+    style: {
+      height: 91.371,
+      left: "calc(50% - 227.48px)",
+      top: "calc(50% + 178.32px)",
+      width: 138.558,
+    },
   },
   {
-    alt: "Web concept animation",
+    alt: "Toothbrush concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/web-shot-3.mp4",
-    style: { height: 88.93, left: 806.5, top: 183.33, width: 119.5 },
+    radius: 28,
+    src: "/videos/toothbrush.webm",
+    style: {
+      height: 122.9,
+      left: "calc(50% + 173.16px)",
+      top: "calc(50% + 194.08px)",
+      width: 186.371,
+    },
   },
   {
-    alt: "Best concept animation",
+    alt: "Zephyr workshop concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/best.mp4",
-    style: { height: 89.768, left: 441.87, top: 227.98, width: 120.626 },
+    radius: 28,
+    src: "/videos/zephyr%20workshop.webm",
+    style: {
+      height: 96.333,
+      left: "calc(50% - 39.96px)",
+      top: "calc(50% - 195.57px)",
+      width: 146.083,
+    },
   },
   {
-    alt: "Web shot concept animation",
+    alt: "Red cubes concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/web-shot-2.mp4",
-    style: { height: 89.768, left: 251.24, top: 376.37, width: 120.626 },
+    radius: 28,
+    src: "/videos/red%20cubes.webm",
+    style: {
+      height: 128.453,
+      left: "calc(50% + 301.39px)",
+      top: "calc(50% - 163.92px)",
+      width: 194.792,
+    },
   },
   {
-    alt: "Composed concept animation",
+    alt: "Sky Cut concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/compossed.mp4",
-    style: { height: 89.768, left: 311.55, top: 433.87, width: 120.626 },
+    radius: 28,
+    src: "/videos/Sky%20Cut.webm",
+    style: {
+      height: 91.371,
+      left: "calc(50% - 338.04px)",
+      top: "calc(50% + 9.31px)",
+      width: 138.558,
+    },
   },
   {
-    alt: "Compact web concept animation",
+    alt: "Yellow pillows concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/web-shot-3.mp4",
-    style: { height: 62.037, left: 288.51, top: 492.62, width: 83.362 },
+    radius: 28,
+    src: "/videos/yellow%20pillows.webm",
+    style: {
+      height: 128.453,
+      left: "calc(50% - 170.04px)",
+      top: "calc(50% - 267.23px)",
+      width: 194.792,
+    },
   },
   {
-    alt: "AAA concept animation",
+    alt: "Tale shot concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/aaa.mp4",
-    style: { height: 89.768, left: 493.37, top: 618.1, width: 120.626 },
+    radius: 28,
+    src: "/videos/Tale%20shot%20(1).webm",
+    style: {
+      height: 128.453,
+      left: "calc(50% + 318.67px)",
+      top: "calc(50% + 123.65px)",
+      width: 194.792,
+    },
   },
   {
-    alt: "Mobile concept animation",
+    alt: "VR house concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/mob-1-shot.mp4",
-    style: { height: 89.768, left: 589.19, top: 594.53, width: 120.626 },
+    radius: 28,
+    src: "/videos/vr%20house.webm",
+    style: {
+      height: 128.453,
+      left: "calc(50% - 87.6px)",
+      top: "calc(50% + 227.53px)",
+      width: 194.792,
+    },
   },
   {
-    alt: "Tale concept animation",
+    alt: "Cash cross concept animation",
     mediaType: "video",
-    radius: 16,
-    src: "/videos/tale-shot.mp4",
-    style: { height: 89.768, left: 773.69, top: 567.81, width: 120.626 },
-  },
-  {
-    alt: "Mobile concept animation",
-    mediaType: "video",
-    radius: 16,
-    src: "/videos/mobile-shot-2.mp4",
-    style: { height: 89.674, left: 990.01, top: 432.9, width: 120.5 },
-  },
-  {
-    alt: "Map concept",
-    className: "portfolio-concepts__tile--crop-left",
-    radius: 16,
-    src: "/images/concepts/concept-17.png",
-    style: { height: 56.163, left: 1076.01, top: 393.84, width: 77.321 },
-  },
-  {
-    alt: "Product concept",
-    className: "portfolio-concepts__tile--crop-left",
-    radius: 16,
-    src: "/images/concepts/concept-05.png",
-    style: { height: 54.533, left: 906.17, top: 217.73, width: 73.278 },
-  },
-  {
-    alt: "Render concept",
-    radius: 16,
-    src: "/images/concepts/concept-04.png",
-    style: { height: 60.664, left: 861.5, top: 636.1, width: 81.517 },
+    radius: 28,
+    src: "/videos/cash%20cross.webm",
+    style: {
+      height: 128.453,
+      left: "calc(50% + 416.06px)",
+      top: "calc(50% - 64.23px)",
+      width: 194.792,
+    },
   },
 ];
 
@@ -325,7 +348,9 @@ function ConceptsSection({
           <ConceptTile key={`${tile.src ?? "empty"}-${index}`} tile={tile} />
         ))}
       </div>
-      <p className="portfolio-concepts__hint">Scroll down</p>
+      <p className="portfolio-concepts__hint">
+        UI/3d/motion/ai experiments
+      </p>
       <h2 className="portfolio-concepts__title" id="concepts-title">
         There&rsquo;s my wall of concepts
       </h2>
