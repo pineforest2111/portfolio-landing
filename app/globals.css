@@ -571,7 +571,7 @@ a {
   }
 
   .portfolio-concepts__wall {
-    height: 852px;
+    height: 100dvh;
     top: 0;
     transform: translateX(-50%);
     width: 393px;

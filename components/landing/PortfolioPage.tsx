@@ -201,6 +201,7 @@ export function PortfolioPage() {
       />
       <ConceptsSection
         activeItem={activeNavigationItem}
+        isActive={activeSection === "concepts"}
         onSectionSelect={handleSectionSelect}
       />
       <MySkazkaCaseSection onBack={closeMySkazka} />
@@ -331,9 +332,11 @@ function WorksSection({
 
 function ConceptsSection({
   activeItem,
+  isActive,
   onSectionSelect,
 }: {
   activeItem: NavigationBarItemId;
+  isActive: boolean;
   onSectionSelect: (item: NavigationBarItemId) => void;
 }) {
   return (
@@ -345,7 +348,11 @@ function ConceptsSection({
     >
       <div className="portfolio-concepts__wall" aria-hidden="true">
         {conceptTiles.map((tile, index) => (
-          <ConceptTile key={`${tile.src ?? "empty"}-${index}`} tile={tile} />
+          <ConceptTile
+            key={`${tile.src ?? "empty"}-${index}`}
+            shouldLoadMedia={isActive}
+            tile={tile}
+          />
         ))}
       </div>
       <p className="portfolio-concepts__hint">
@@ -364,7 +371,13 @@ function ConceptsSection({
   );
 }
 
-function ConceptTile({ tile }: { tile: ConceptTile }) {
+function ConceptTile({
+  shouldLoadMedia,
+  tile,
+}: {
+  shouldLoadMedia: boolean;
+  tile: ConceptTile;
+}) {
   const style = {
     ...tile.style,
     "--concept-radius": `${tile.radius}px`,
@@ -379,16 +392,18 @@ function ConceptTile({ tile }: { tile: ConceptTile }) {
     >
       {tile.src ? (
         tile.mediaType === "video" ? (
-          <video
-            aria-label={tile.alt}
-            autoPlay
-            className="portfolio-concepts__tile-video"
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            src={tile.src}
-          />
+          shouldLoadMedia ? (
+            <video
+              aria-label={tile.alt}
+              autoPlay
+              className="portfolio-concepts__tile-video"
+              loop
+              muted
+              playsInline
+              preload="none"
+              src={tile.src}
+            />
+          ) : null
         ) : (
           <Image
             alt={tile.alt}
