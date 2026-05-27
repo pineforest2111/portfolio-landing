@@ -73,9 +73,9 @@ export function InfoWidget({
           <Image
             alt=""
             aria-hidden="true"
-            height={19}
-            src="/info-widget-badge-mark.svg"
-            width={19}
+            height={36}
+            src="/logo.png"
+            width={36}
           />
         </div>
 

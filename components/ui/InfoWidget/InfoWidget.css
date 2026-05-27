@@ -107,17 +107,14 @@
 
 .portfolio-info-widget-expanded__badge {
   align-items: center;
-  background: #262626;
-  border-radius: 8.142px;
   display: flex;
-  height: 28.128px;
+  height: 36px;
   justify-content: center;
   left: 50%;
-  overflow: hidden;
   position: absolute;
-  top: 98px;
-  transform: translateX(-50%) rotate(-21.55deg);
-  width: 28.128px;
+  top: 92px;
+  transform: translateX(-50%);
+  width: 36px;
 }
 
 .portfolio-info-widget-expanded__content {
