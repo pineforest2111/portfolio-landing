@@ -156,8 +156,39 @@ const conceptTiles: ConceptTile[] = [
   },
 ];
 
+const initialAssetUrls = [
+  "/images/erbghj%201.png",
+  "/images/Mobile%20BG.png",
+  "/telegram-frame-1.svg",
+  "/contact-message.svg",
+  "/navigation-hub-showreel.png",
+  "/navigation-hub-cv-icon.svg",
+  "/info-widget-avatar.jpg",
+  "/logo.png",
+  "/info-widget-global.svg",
+  "/info-widget-pen-tool.svg",
+  "/info-widget-ranking.svg",
+  "/navbar-about-selected.svg",
+  "/navbar-about-unselected.svg",
+  "/navbar-works-selected.svg",
+  "/navbar-works-unselected.svg",
+  "/navbar-concepts-selected.svg",
+  "/navbar-concepts-unselected.svg",
+  "/project-widget-folder-img-1.png",
+  "/project-widget-folder-img-2.png",
+  "/project-widget-folder-img-3.png",
+  "/project-widget-folder-shadow-default.png",
+  "/project-widget-folder-shadow-hover.png",
+  "/project-widget-folder-default.svg",
+  "/project-widget-folder-hover.svg",
+  "/case-item-export-default.svg",
+  "/case-item-export-hover.svg",
+];
+
 export function PortfolioPage() {
   const [activeSection, setActiveSection] = useState<PortfolioSection>("about");
+  const [isSiteLoading, setIsSiteLoading] = useState(true);
+  const [loaderProgress, setLoaderProgress] = useState(0);
 
   useEffect(() => {
     const syncSectionFromHash = () => {
@@ -176,6 +207,49 @@ export function PortfolioPage() {
 
     return () => {
       window.removeEventListener("hashchange", syncSectionFromHash);
+    };
+  }, []);
+
+  useEffect(() => {
+    let isCancelled = false;
+    let hideTimer = 0;
+    let loadedItems = 0;
+    const assetUrls = Array.from(new Set(initialAssetUrls));
+    const totalItems = assetUrls.length + 1;
+
+    const markItemLoaded = () => {
+      if (isCancelled) {
+        return;
+      }
+
+      loadedItems += 1;
+      setLoaderProgress(Math.min(99, Math.round((loadedItems / totalItems) * 100)));
+    };
+
+    const fontPromise =
+      "fonts" in document
+        ? document.fonts.ready.then(() => undefined).catch(() => undefined)
+        : Promise.resolve();
+
+    const loadPromises = [
+      fontPromise.then(markItemLoaded),
+      ...assetUrls.map((src) => preloadImage(src).then(markItemLoaded)),
+    ];
+
+    Promise.all(loadPromises).then(() => {
+      if (isCancelled) {
+        return;
+      }
+
+      setLoaderProgress(100);
+      hideTimer = window.setTimeout(() => {
+        setIsSiteLoading(false);
+      }, 240);
+    });
+
+    return () => {
+      isCancelled = true;
+      window.clearTimeout(hideTimer);
     };
   }, []);
 
@@ -217,6 +291,7 @@ export function PortfolioPage() {
 
   return (
     <main className="portfolio-page" data-active-section={activeSection}>
+      {isSiteLoading ? <SiteLoader progress={loaderProgress} /> : null}
       <AboutSection
         activeItem={activeNavigationItem}
         onSectionSelect={handleSectionSelect}
@@ -233,6 +308,54 @@ export function PortfolioPage() {
       />
       <MySkazkaCaseSection onBack={closeMySkazka} />
     </main>
+  );
+}
+
+function preloadImage(src: string) {
+  return new Promise<void>((resolve) => {
+    const image = new window.Image();
+    let timeoutId = 0;
+
+    const finish = () => {
+      window.clearTimeout(timeoutId);
+      resolve();
+    };
+
+    timeoutId = window.setTimeout(finish, 12000);
+    image.onload = finish;
+    image.onerror = finish;
+    image.src = src;
+
+    if (image.complete) {
+      finish();
+    }
+  });
+}
+
+function SiteLoader({ progress }: { progress: number }) {
+  return (
+    <div
+      aria-label="Loading portfolio"
+      aria-live="polite"
+      className="portfolio-site-loader"
+      role="status"
+    >
+      <div className="portfolio-site-loader__content">
+        <p className="portfolio-site-loader__title">Loading Roma&apos;s vibe</p>
+        <div
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={progress}
+          className="portfolio-site-loader__track"
+          role="progressbar"
+        >
+          <span
+            className="portfolio-site-loader__progress"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
