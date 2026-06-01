@@ -341,7 +341,9 @@ function SiteLoader({ progress }: { progress: number }) {
       role="status"
     >
       <div className="portfolio-site-loader__content">
-        <p className="portfolio-site-loader__title">Loading Roma&apos;s vibe</p>
+        <p className="portfolio-site-loader__title">
+          hello! Roma Osipov&apos;s portfolio is being uploaded
+        </p>
         <div
           aria-valuemax={100}
           aria-valuemin={0}
