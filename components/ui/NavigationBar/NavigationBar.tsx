@@ -83,8 +83,6 @@ function NavigationBarSegment({
   onSelect?: (item: NavigationBarItemId) => void;
   selected: boolean;
 }) {
-  const icon = selected ? item.selectedIcon : item.unselectedIcon;
-
   return (
     <button
       aria-current={selected ? "page" : undefined}
@@ -100,7 +98,22 @@ function NavigationBarSegment({
       type="button"
     >
       <span className="portfolio-navigation-bar__segment-bg">
-        <Image alt="" aria-hidden="true" height={20} src={icon} width={20} />
+        <span className="portfolio-navigation-bar__icons" aria-hidden="true">
+          <Image
+            alt=""
+            className="portfolio-navigation-bar__icon portfolio-navigation-bar__icon--unselected"
+            height={20}
+            src={item.unselectedIcon}
+            width={20}
+          />
+          <Image
+            alt=""
+            className="portfolio-navigation-bar__icon portfolio-navigation-bar__icon--selected"
+            height={20}
+            src={item.selectedIcon}
+            width={20}
+          />
+        </span>
         <span>{item.label}</span>
       </span>
     </button>

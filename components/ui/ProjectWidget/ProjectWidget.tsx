@@ -69,21 +69,21 @@ const cardData = [
   {
     className: "portfolio-project-widget__card-wrap--hr",
     height: 328,
-    image: "/project-widget-folder-img-1.png",
+    image: "/project-widget-folder-img-1.webp",
     title: "HR Portal card",
     width: 432,
   },
   {
     className: "portfolio-project-widget__card-wrap--worldclass",
     height: 328,
-    image: "/project-widget-folder-img-3.png",
+    image: "/project-widget-folder-img-3.webp",
     title: "Worldclass card",
     width: 432,
   },
   {
     className: "portfolio-project-widget__card-wrap--myskazka",
     height: 324,
-    image: "/project-widget-folder-img-2.png",
+    image: "/project-widget-folder-img-2.webp",
     title: "MySkazka card",
     width: 427,
   },
@@ -127,14 +127,14 @@ export function ProjectWidget({
           alt=""
           className="portfolio-project-widget__folder-shadow portfolio-project-widget__folder-layer--default"
           height={402}
-          src="/project-widget-folder-shadow-default.png"
+          src="/project-widget-folder-shadow-default.webp"
           width={414}
         />
         <Image
           alt=""
           className="portfolio-project-widget__folder-shadow portfolio-project-widget__folder-layer--hover"
           height={406}
-          src="/project-widget-folder-shadow-hover.png"
+          src="/project-widget-folder-shadow-hover.webp"
           width={418}
         />
         <Image

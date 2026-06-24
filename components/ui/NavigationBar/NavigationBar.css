@@ -148,6 +148,35 @@
   z-index: 1;
 }
 
+.portfolio-navigation-bar__icons {
+  display: block;
+  flex: 0 0 auto;
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.portfolio-navigation-bar__icon {
+  height: 20px;
+  inset: 0;
+  position: absolute;
+  width: 20px;
+}
+
+.portfolio-navigation-bar__icon--selected {
+  opacity: 0;
+}
+
+.portfolio-navigation-bar__segment[data-selected="true"]
+  .portfolio-navigation-bar__icon--unselected {
+  opacity: 0;
+}
+
+.portfolio-navigation-bar__segment[data-selected="true"]
+  .portfolio-navigation-bar__icon--selected {
+  opacity: 1;
+}
+
 .portfolio-navigation-bar__segment:hover .portfolio-navigation-bar__segment-bg {
   background-color: #cfcfcf;
   background-image: none;

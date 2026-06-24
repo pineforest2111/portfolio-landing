@@ -157,13 +157,12 @@ const conceptTiles: ConceptTile[] = [
 ];
 
 const initialAssetUrls = [
-  "/images/erbghj%201.png",
-  "/images/Mobile%20BG.png",
   "/telegram-frame-1.svg",
   "/contact-message.svg",
-  "/navigation-hub-showreel.png",
+  "/navigation-hub-showreel.webp",
   "/navigation-hub-cv-icon.svg",
-  "/info-widget-avatar.jpg",
+  "/navigation-hub-close.svg",
+  "/info-widget-avatar-optimized.jpg",
   "/logo.png",
   "/info-widget-global.svg",
   "/info-widget-pen-tool.svg",
@@ -174,11 +173,11 @@ const initialAssetUrls = [
   "/navbar-works-unselected.svg",
   "/navbar-concepts-selected.svg",
   "/navbar-concepts-unselected.svg",
-  "/project-widget-folder-img-1.png",
-  "/project-widget-folder-img-2.png",
-  "/project-widget-folder-img-3.png",
-  "/project-widget-folder-shadow-default.png",
-  "/project-widget-folder-shadow-hover.png",
+  "/project-widget-folder-img-1.webp",
+  "/project-widget-folder-img-2.webp",
+  "/project-widget-folder-img-3.webp",
+  "/project-widget-folder-shadow-default.webp",
+  "/project-widget-folder-shadow-hover.webp",
   "/project-widget-folder-default.svg",
   "/project-widget-folder-hover.svg",
   "/case-item-export-default.svg",
@@ -214,7 +213,12 @@ export function PortfolioPage() {
     let isCancelled = false;
     let hideTimer = 0;
     let loadedItems = 0;
-    const assetUrls = Array.from(new Set(initialAssetUrls));
+    const backgroundAsset = window.matchMedia("(max-width: 767px)").matches
+      ? "/images/portfolio-bg-mobile.webp"
+      : "/images/portfolio-bg-desktop.webp";
+    const assetUrls = Array.from(
+      new Set([...initialAssetUrls, backgroundAsset]),
+    );
     const totalItems = assetUrls.length + 1;
 
     const markItemLoaded = () => {
@@ -292,21 +296,28 @@ export function PortfolioPage() {
   return (
     <main className="portfolio-page" data-active-section={activeSection}>
       {isSiteLoading ? <SiteLoader progress={loaderProgress} /> : null}
-      <AboutSection
-        activeItem={activeNavigationItem}
-        onSectionSelect={handleSectionSelect}
-      />
-      <WorksSection
-        activeItem={activeNavigationItem}
-        onMySkazkaOpen={openMySkazka}
-        onSectionSelect={handleSectionSelect}
-      />
-      <ConceptsSection
-        activeItem={activeNavigationItem}
-        isActive={activeSection === "concepts"}
-        onSectionSelect={handleSectionSelect}
-      />
-      <MySkazkaCaseSection onBack={closeMySkazka} />
+      {activeSection === "about" ? (
+        <AboutSection
+          activeItem={activeNavigationItem}
+          onSectionSelect={handleSectionSelect}
+        />
+      ) : null}
+      {activeSection === "works" ? (
+        <WorksSection
+          activeItem={activeNavigationItem}
+          onMySkazkaOpen={openMySkazka}
+          onSectionSelect={handleSectionSelect}
+        />
+      ) : null}
+      {activeSection === "concepts" ? (
+        <ConceptsSection
+          activeItem={activeNavigationItem}
+          onSectionSelect={handleSectionSelect}
+        />
+      ) : null}
+      {activeSection === "myskazka" ? (
+        <MySkazkaCaseSection onBack={closeMySkazka} />
+      ) : null}
     </main>
   );
 }
@@ -314,20 +325,32 @@ export function PortfolioPage() {
 function preloadImage(src: string) {
   return new Promise<void>((resolve) => {
     const image = new window.Image();
-    let timeoutId = 0;
+    let isSettled = false;
 
     const finish = () => {
-      window.clearTimeout(timeoutId);
+      if (isSettled) {
+        return;
+      }
+
+      isSettled = true;
       resolve();
     };
 
-    timeoutId = window.setTimeout(finish, 12000);
-    image.onload = finish;
+    const decode = () => {
+      image.decode().then(finish).catch(finish);
+    };
+
+    image.decoding = "async";
+    image.onload = decode;
     image.onerror = finish;
     image.src = src;
 
     if (image.complete) {
-      finish();
+      if (image.naturalWidth > 0) {
+        decode();
+      } else {
+        finish();
+      }
     }
   });
 }
@@ -366,20 +389,18 @@ function BackgroundVisual() {
     <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
       <div className="absolute bottom-[-158px] left-[-5.56%] right-[-5.56%] top-0 hidden md:block">
         <Image
-          src="/images/erbghj%201.png"
+          src="/images/portfolio-bg-desktop.webp"
           alt=""
           fill
-          priority
           sizes="112vw"
           className="object-cover"
         />
       </div>
       <div className="portfolio-mobile-background md:hidden">
         <Image
-          src="/images/Mobile%20BG.png"
+          src="/images/portfolio-bg-mobile.webp"
           alt=""
           fill
-          priority
           sizes="165vw"
           className="object-cover"
         />
@@ -484,11 +505,9 @@ function WorksSection({
 
 function ConceptsSection({
   activeItem,
-  isActive,
   onSectionSelect,
 }: {
   activeItem: NavigationBarItemId;
-  isActive: boolean;
   onSectionSelect: (item: NavigationBarItemId) => void;
 }) {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -496,13 +515,6 @@ function ConceptsSection({
   const [activeConceptIndex, setActiveConceptIndex] = useState(
     defaultActiveConceptIndex,
   );
-
-  useEffect(() => {
-    if (!isActive) {
-      setIsGalleryOpen(false);
-      setActiveConceptIndex(defaultActiveConceptIndex);
-    }
-  }, [isActive]);
 
   const scrollToConcept = (
     index: number,
@@ -574,7 +586,7 @@ function ConceptsSection({
             isGalleryOpen={isGalleryOpen}
             key={`${tile.src ?? "empty"}-${index}`}
             onActivate={openGallery}
-            shouldLoadMedia={isActive}
+            shouldLoadMedia
             tile={tile}
           />
         ))}
@@ -741,7 +753,7 @@ function MySkazkaCaseSection({ onBack }: { onBack: () => void }) {
           className="portfolio-case__hero-image"
           height={1056}
           priority={false}
-          src="/images/myskazka-case-hero.png"
+          src="/images/myskazka-case-hero.jpg"
           width={1684}
         />
 
@@ -1118,6 +1130,50 @@ function CaseFigure({
       }`.trim()}
     >
       {mediaType === "video" ? (
+        <LazyCaseVideo alt={alt} src={src} />
+      ) : (
+        <Image
+          alt={alt}
+          className="portfolio-case__figure-image"
+          fill
+          sizes={compact ? "(max-width: 767px) 50vw, 288px" : "588px"}
+          src={src}
+        />
+      )}
+    </div>
+  );
+}
+
+function LazyCaseVideo({ alt, src }: { alt: string; src: string }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (!container || !("IntersectionObserver" in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px 0px" },
+    );
+
+    observer.observe(container);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="portfolio-case__lazy-video" ref={containerRef}>
+      {shouldLoad ? (
         <video
           aria-label={alt}
           autoPlay
@@ -1128,15 +1184,7 @@ function CaseFigure({
           preload="metadata"
           src={src}
         />
-      ) : (
-        <Image
-          alt={alt}
-          className="portfolio-case__figure-image"
-          fill
-          sizes={compact ? "(max-width: 767px) 50vw, 288px" : "588px"}
-          src={src}
-        />
-      )}
+      ) : null}
     </div>
   );
 }

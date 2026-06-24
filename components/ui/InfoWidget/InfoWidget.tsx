@@ -65,7 +65,7 @@ export function InfoWidget({
             alt="Roma Osipov"
             className="portfolio-info-widget-expanded__avatar-image"
             height={133}
-            src="/info-widget-avatar.jpg"
+            src="/info-widget-avatar-optimized.jpg"
             width={109}
           />
         </div>
@@ -145,7 +145,7 @@ export function InfoWidget({
             alt="Roma Osipov"
             className="portfolio-info-widget-compact__avatar-image"
             height={154}
-            src="/info-widget-avatar.jpg"
+            src="/info-widget-avatar-optimized.jpg"
             width={123}
           />
         </span>

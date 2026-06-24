@@ -461,6 +461,11 @@ a {
   width: 100%;
 }
 
+.portfolio-case__lazy-video {
+  height: 100%;
+  width: 100%;
+}
+
 .portfolio-case__figure--gray {
   background: rgb(0 0 0 / 20%);
   box-shadow: 0 4px 4px rgb(0 0 0 / 25%);

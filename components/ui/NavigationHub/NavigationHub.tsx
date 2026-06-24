@@ -52,7 +52,7 @@ export function NavigationHub({
 
     const handlePointerDown = (event: PointerEvent) => {
       if (!rootRef.current?.contains(event.target as Node)) {
-        setExpanded(false);
+        setInternalState("default");
       }
     };
 
@@ -142,7 +142,7 @@ function MicroWidget({
                 aria-hidden="true"
                 className="portfolio-navigation-hub-micro__image"
                 height={379}
-                src="/navigation-hub-showreel.png"
+                src="/navigation-hub-showreel.webp"
                 width={475}
               />
             ) : (
