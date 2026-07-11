@@ -26,7 +26,7 @@ export const navigationBarItems: NavigationBarItem[] = [
   {
     borderScaleX: -5.6662,
     id: "about",
-    label: "About",
+    label: "Обо мне",
     selectedIcon: "/navbar-about-selected.svg",
     unselectedIcon: "/navbar-about-unselected.svg",
     width: 107,
@@ -34,7 +34,7 @@ export const navigationBarItems: NavigationBarItem[] = [
   {
     borderScaleX: -5.7722,
     id: "works",
-    label: "Works",
+    label: "Кейсы",
     selectedIcon: "/navbar-works-selected.svg",
     unselectedIcon: "/navbar-works-unselected.svg",
     width: 109,
@@ -42,7 +42,7 @@ export const navigationBarItems: NavigationBarItem[] = [
   {
     borderScaleX: -7.096,
     id: "concepts",
-    label: "Concepts",
+    label: "Концепты",
     selectedIcon: "/navbar-concepts-selected.svg",
     unselectedIcon: "/navbar-concepts-unselected.svg",
     width: 134,
@@ -103,6 +103,7 @@ function NavigationBarSegment({
             alt=""
             className="portfolio-navigation-bar__icon portfolio-navigation-bar__icon--unselected"
             height={20}
+            priority
             src={item.unselectedIcon}
             width={20}
           />
@@ -110,6 +111,7 @@ function NavigationBarSegment({
             alt=""
             className="portfolio-navigation-bar__icon portfolio-navigation-bar__icon--selected"
             height={20}
+            priority
             src={item.selectedIcon}
             width={20}
           />

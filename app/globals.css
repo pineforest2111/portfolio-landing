@@ -1,9 +1,70 @@
 @import "tailwindcss";
+@source not "../out";
+@source not "../.next";
+
+@font-face {
+  font-display: swap;
+  font-family: "Golos Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/golos-text-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Golos Text";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/golos-text-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/eb-garamond-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/eb-garamond-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/geist-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/geist-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/geist-600.ttf") format("truetype");
+}
 
 :root {
   --background: #818181;
   --foreground: #ffffff;
-  --font-display: "Atyp Display", Arial, Helvetica, sans-serif;
+  --font-display: var(--font-golos);
+  --font-eb-garamond: "EB Garamond", "Times New Roman", Georgia, serif;
+  --font-geist-sans: "Geist", Arial, Helvetica, sans-serif;
+  --font-golos: "Golos Text", Arial, Helvetica, sans-serif;
   --font-golos-text: var(--font-golos);
   --font-serif-display: var(--font-eb-garamond), "Times New Roman", Georgia,
     serif;
@@ -135,6 +196,7 @@ a {
 .portfolio-concepts--gallery {
   height: 100dvh;
   max-height: 100dvh;
+  overscroll-behavior-y: contain;
   overflow-y: auto;
 }
 
@@ -152,7 +214,7 @@ a {
 
 .portfolio-concepts--gallery .portfolio-concepts__wall {
   aspect-ratio: auto;
-  height: 5940px;
+  height: calc(5580px + 100dvh);
   left: 0;
   position: relative;
   top: 0;
@@ -789,7 +851,7 @@ a {
     gap: 12px;
     height: auto;
     left: 50%;
-    min-height: 2663px;
+    min-height: calc(1992px + 100dvh);
     padding: 53px 0 120px;
     position: relative;
     top: 0;

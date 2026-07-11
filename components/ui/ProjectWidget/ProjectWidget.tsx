@@ -115,6 +115,7 @@ export function ProjectWidget({
               alt=""
               className="portfolio-project-widget__card-image"
               height={card.height}
+              priority
               src={card.image}
               width={card.width}
             />
@@ -127,6 +128,7 @@ export function ProjectWidget({
           alt=""
           className="portfolio-project-widget__folder-shadow portfolio-project-widget__folder-layer--default"
           height={402}
+          priority
           src="/project-widget-folder-shadow-default.webp"
           width={414}
         />
@@ -134,6 +136,7 @@ export function ProjectWidget({
           alt=""
           className="portfolio-project-widget__folder-shadow portfolio-project-widget__folder-layer--hover"
           height={406}
+          priority
           src="/project-widget-folder-shadow-hover.webp"
           width={418}
         />
@@ -141,6 +144,7 @@ export function ProjectWidget({
           alt=""
           className="portfolio-project-widget__folder-body portfolio-project-widget__folder-layer--default"
           height={358}
+          priority
           src="/project-widget-folder-default.svg"
           width={370}
         />
@@ -148,6 +152,7 @@ export function ProjectWidget({
           alt=""
           className="portfolio-project-widget__folder-body portfolio-project-widget__folder-layer--hover"
           height={362}
+          priority
           src="/project-widget-folder-hover.svg"
           width={374}
         />

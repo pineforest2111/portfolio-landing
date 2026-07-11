@@ -62,9 +62,10 @@ export function InfoWidget({
       >
         <div className="portfolio-info-widget-expanded__avatar">
           <Image
-            alt="Roma Osipov"
+            alt="Рома Осипов"
             className="portfolio-info-widget-expanded__avatar-image"
             height={133}
+            priority
             src="/info-widget-avatar-optimized.jpg"
             width={109}
           />
@@ -74,6 +75,7 @@ export function InfoWidget({
             alt=""
             aria-hidden="true"
             height={36}
+            priority
             src="/logo.png"
             width={36}
           />
@@ -122,6 +124,7 @@ export function InfoWidget({
                 alt=""
                 aria-hidden="true"
                 height={24}
+                priority
                 src={item.icon}
                 width={24}
               />
@@ -145,18 +148,19 @@ export function InfoWidget({
             alt="Roma Osipov"
             className="portfolio-info-widget-compact__avatar-image"
             height={154}
+            priority
             src="/info-widget-avatar-optimized.jpg"
             width={123}
           />
         </span>
         <span className="portfolio-info-widget-compact__copy">
           <span className="portfolio-info-widget-compact__title">
-            I&apos;m Roma Osipov
+            Я Рома Осипов
           </span>
           <span className="portfolio-info-widget-compact__description">
-            Product designer with five years <br />
-            of professional experience working <br />
-            with mobile &amp; web products
+            Продуктовый дизайнер, 5 лет опыта <br />
+            работал как с веб, так и мобильными <br />
+            продуктами
           </span>
         </span>
       </span>

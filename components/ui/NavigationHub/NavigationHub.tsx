@@ -142,6 +142,7 @@ function MicroWidget({
                 aria-hidden="true"
                 className="portfolio-navigation-hub-micro__image"
                 height={379}
+                priority
                 src="/navigation-hub-showreel.webp"
                 width={475}
               />
@@ -151,6 +152,7 @@ function MicroWidget({
                   alt=""
                   aria-hidden="true"
                   height={18}
+                  priority
                   src="/navigation-hub-cv-icon.svg"
                   width={15}
                 />
@@ -192,6 +194,7 @@ function CloseSegment(props: ButtonHTMLAttributes<HTMLButtonElement>) {
           alt=""
           aria-hidden="true"
           height={20}
+          priority
           src="/navigation-hub-close.svg"
           width={20}
         />

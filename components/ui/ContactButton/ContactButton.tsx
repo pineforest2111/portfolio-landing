@@ -90,10 +90,10 @@ const hoverIconSize: Record<ContactButtonSize, number> = {
 };
 
 export function ContactButton({
-  children = "Contact me",
+  children = "Написать мне",
   className,
   disabled,
-  hoverLabel = "Go to telegram",
+  hoverLabel = "Написать мне",
   isActive = false,
   isLoading = false,
   size = "md",
